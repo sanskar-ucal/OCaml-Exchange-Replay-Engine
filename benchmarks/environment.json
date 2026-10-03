@@ -1,0 +1,12 @@
+{
+  "measured_at_utc": "2026-10-03T01:14:12.541862+00:00",
+  "platform": "Linux-6.18.44-x86_64-with-glibc2.39",
+  "architecture": "x86_64",
+  "cpu_model": "INTEL(R) XEON(R) PLATINUM 8573C",
+  "virtualized": true,
+  "compiler": "OCaml 4.14.1",
+  "dune": "3.14.0",
+  "profile": "release",
+  "benchmark_processes": "One single-threaded process per run, sequential runs",
+  "notes": "Shared virtualized execution environment; timing is not a production capacity measurement."
+}

@@ -1,0 +1,19 @@
+{
+  "ocaml_version": "4.14.1",
+  "word_size": 64,
+  "seed": 42,
+  "commands": 100000,
+  "accepted": 69745,
+  "rejected": 30255,
+  "trade_events": 57077,
+  "traded_units": 600936,
+  "active_orders": 4447,
+  "wall_seconds": 0.117188,
+  "cpu_seconds": 0.117179,
+  "commands_per_second": 853329.86,
+  "allocated_bytes": 229010888,
+  "minor_collections": 110,
+  "major_collections": 4,
+  "state_fingerprint": "fe51f666adfe4aea9859bae0ad2ed28e",
+  "timing_scope": "Book.apply plus event statistics; pre-generated single-process synthetic commands, no I/O or invariant scans"
+}

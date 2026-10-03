@@ -1,0 +1,5 @@
+(executable
+ (name main)
+ (public_name axiom)
+ (package axiom_exchange)
+ (libraries axiom unix))

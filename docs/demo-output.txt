@@ -1,0 +1,33 @@
+[0] ACCEPT LIMIT alice SELL 10010 7 GTC
+[0] REST alice SELL price=10010 quantity=7
+[1] ACCEPT LIMIT bob SELL 10010 5 GTC
+[1] REST bob SELL price=10010 quantity=5
+[2] ACCEPT LIMIT carol BUY 10010 9 GTC
+[2] TRADE maker=alice taker=carol price=10010 quantity=7 notional=70070
+[2] TRADE maker=bob taker=carol price=10010 quantity=2 notional=20020
+[3] ACCEPT LIMIT dave SELL 10012 6 GTC
+[3] REST dave SELL price=10012 quantity=6
+[4] ACCEPT LIMIT erin SELL 10011 4 GTC
+[4] REST erin SELL price=10011 quantity=4
+[5] ACCEPT MARKET frank BUY 5
+[5] TRADE maker=bob taker=frank price=10010 quantity=3 notional=30030
+[5] TRADE maker=erin taker=frank price=10011 quantity=2 notional=20022
+[line 11] REJECT FOK cannot fully fill: grace
+[6] ACCEPT LIMIT heidi BUY 10012 10 IOC
+[6] TRADE maker=erin taker=heidi price=10011 quantity=2 notional=20022
+[6] TRADE maker=dave taker=heidi price=10012 quantity=6 notional=60072
+[6] EXPIRE heidi quantity=2 reason=IOC
+[7] ACCEPT LIMIT ivan BUY 10000 10 POST_ONLY
+[7] REST ivan BUY price=10000 quantity=10
+[8] ACCEPT LIMIT judy BUY 10000 8 GTC
+[8] REST judy BUY price=10000 quantity=8
+[9] REDUCE ivan from=10 to=4
+[10] ACCEPT MARKET mallory SELL 5
+[10] TRADE maker=ivan taker=mallory price=10000 quantity=4 notional=40000
+[10] TRADE maker=judy taker=mallory price=10000 quantity=1 notional=10000
+[11] CANCEL judy quantity=7
+[line 21] REJECT duplicate order id: judy
+[12] ACCEPT MARKET oscar SELL 2
+[12] EXPIRE oscar quantity=2 reason=MARKET
+commands=15 accepted=13 rejected=2 trades=8 traded_units=27 open_orders=0 sequence=13
+best_bid=none best_ask=none state=e7d57d4c3cef3c2b1adaef0050a9d774

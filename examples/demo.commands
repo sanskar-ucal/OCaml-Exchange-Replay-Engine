@@ -1,0 +1,23 @@
+# Integer prices are ticks; no floats and no real market data.
+# FIFO at the same price; the second ask survives a partial fill.
+LIMIT alice SELL 10010 7 GTC
+LIMIT bob SELL 10010 5 GTC
+LIMIT carol BUY 10010 9 GTC
+# Best price wins regardless of arrival order.
+LIMIT dave SELL 10012 6 GTC
+LIMIT erin SELL 10011 4 GTC
+MARKET frank BUY 5
+# FOK is rejected atomically; sequence and resting orders do not change.
+LIMIT grace BUY 10011 100 FOK
+# IOC executes available quantity, expires the remainder, and never rests.
+LIMIT heidi BUY 10012 10 IOC
+LIMIT ivan BUY 10000 10 POST_ONLY
+LIMIT judy BUY 10000 8 GTC
+# Strict reductions retain FIFO priority.
+REDUCE ivan 4
+MARKET mallory SELL 5
+CANCEL judy
+# Accepted IDs cannot be reused, including after cancellation.
+LIMIT judy SELL 10005 5 GTC
+# Market orders expire when there is no opposing liquidity.
+MARKET oscar SELL 2

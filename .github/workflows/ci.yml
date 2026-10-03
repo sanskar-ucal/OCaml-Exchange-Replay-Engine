@@ -1,0 +1,19 @@
+name: OCaml correctness
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        ocaml-compiler: ["4.14.x", "5.2.x"]
+    steps:
+      - uses: actions/checkout@v6
+      - uses: ocaml/setup-ocaml@v3
+        with:
+          ocaml-compiler: ${{ matrix.ocaml-compiler }}
+      - run: opam install . --deps-only --with-test -y
+      - run: opam exec -- dune build @all
+      - run: opam exec -- dune runtest
+      - run: opam exec -- dune exec axiom -- verify examples/demo.commands

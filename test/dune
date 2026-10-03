@@ -1,0 +1,4 @@
+(test
+ (name test_exchange)
+ (modules reference test_exchange)
+ (libraries axiom))
